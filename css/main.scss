@@ -1,0 +1,170 @@
+$rfs-minimum-font-size: 14px;
+@import '_rfs';
+
+$break: 420;
+
+$font-head: 'Anton', sans-serif;
+$font-body: 'Rubik', sans-serif;
+
+$border-color: darkgray;
+
+html, body {
+  color: #272727;
+  margin: 0;
+  padding: 0;
+
+  font-family: $font-body;
+}
+
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+body {
+  @include responsive-font-size(16px);
+  margin: 0 auto;
+  max-width: 1600px;
+  padding-bottom: 10rem;
+}
+
+header {
+  padding: 1rem 0 0;
+  margin: 0 auto 2rem;
+  max-width: 900px;
+
+  * {
+    margin: 0;
+    padding: 0;
+  }
+
+  .header-top {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+  }
+
+  h1 {
+    @include responsive-font-size(38px);
+
+    font-family: $font-head;
+    line-height: 1;
+    margin: 4px 0 0 1rem;
+  }
+  
+  button {
+    background: none;
+    border: none;
+  }
+
+  .header-buttons {
+    margin-right: 1rem;
+    white-space: nowrap;
+  }
+
+  [class^="icon"] {
+    @include responsive-font-size(40px);
+    height: 1em;
+    width: 1em;
+  }
+
+  img {
+    width: 100%;
+  }
+
+  nav {
+    border-right: none;
+    border-bottom: none;
+  }
+
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+  }
+
+  li {
+    display: inline-block;
+    flex-grow: 1;
+    text-align: center;
+
+    a {
+      @include responsive-font-size(15px);
+
+      color: currentColor;
+      display: block;
+      text-decoration: none;
+    }
+  }
+  .navigation-pages {
+    flex-grow: 1;
+    margin: 1em;
+
+    ul {
+      justify-content: center;
+    }
+
+    a {
+      font-weight: bold;
+      padding: .3rem .5rem;
+      text-transform: uppercase;
+
+      &:hover,
+      &:focus {
+        background-color: #272727;
+        color: white;
+      }
+    }
+  }
+
+  .navigation-category {
+    margin-top: .4rem;
+
+    a {
+      padding: .2rem;
+
+      &:hover,
+      &:focus {
+        background-color: #272727;
+        color: white;
+      }
+    }
+  }
+
+}
+
+.content {
+  margin: 0 auto;
+  max-width: 700px;
+  padding: 0 1rem;
+}
+
+@media screen and (max-width: "#{$break}px") {
+  .js-no {
+    .icon-menu {
+      display: none;
+    }
+  }
+  .js-yes {
+    .navigation-pages {
+      margin: 0;
+      max-height: 0;
+      overflow: hidden;
+      transition: all .2s;
+    }
+    &.js-show-nav {
+      .navigation-pages {
+        margin: 1rem 0 .5rem;
+        max-height: 5rem;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: "#{$break + 1}px") {
+  .icon-menu {
+    display: none;
+  }
+}
